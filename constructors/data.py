@@ -2,8 +2,11 @@
 # coding=utf-8
 
 from typing import List, Dict, Union
+import logging
 
-class DataConstructor:
+class Data:
+    logger = logging.getLogger(__name__)
+
     """ Data object constructor wrapped around file """
 
     def __init__(self, file: str, headers: List[str], delimiter: str, header_dtypes:Dict):
@@ -34,18 +37,19 @@ class DataConstructor:
                     ...
                 ]
         """
-
+        logging.debug(f'Building Data object for :: {file}')
         data = []
+        try:
+            with open(file) as f:
+                for line in f:
+                    row_dict = {header: Data.
+                        cast_primitive_dtype(value,header_dtypes[header])
+                                for header, value in zip(headers, line.rstrip().split(delimiter))}
 
-        with open(file) as f:
-            for line in f:
-                row_dict = {header: DataConstructor.cast_primitive_dtype(
-                    value,
-                    header_dtypes[header]
-                ) for header, value in zip(headers, line.rstrip().split(delimiter))}
-
-                data.append(row_dict)
-        return data
+                    data.append(row_dict)
+            return data
+        except Exception as e:
+            self.logger.error(f'{e} :: specify the correct path to file')
 
     @staticmethod
     def cast_primitive_dtype(data, dtype) -> Union[int, str, bool, float]:
