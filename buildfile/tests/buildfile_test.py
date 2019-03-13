@@ -2,7 +2,7 @@
 # coding=utf-8
 
 import unittest
-import makefile.buildfile as buildfile
+import buildfile.buildfile as buildfile
 
 """ unit tests around DataConstructor class """
 class DataConstructorTest(unittest.TestCase):
