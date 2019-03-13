@@ -8,8 +8,5 @@ Alter the command in the run scripts to match your file locations:
 
 `python app.py -product_path <FILE_PATH> -sales_path <FILE_PATH> -buildfile <FILE_PATH>`
 
-#### On MacOSX
+#### On MacOSX/Linux
 Run the command: `./run.sh` to start the app
-
-#### On Windows
-Run the command `.\bat.sh` to start the app

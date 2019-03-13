@@ -63,10 +63,11 @@ def build_product_report(product: Data, accumulated_sales: Dict, build_path: str
             selected_product = product[productId-1]
             total_units = calc_total_units(quantity=quantity, lot_size=selected_product['LotSize'])
             gross_revenue = calc_gross_revenue(price=selected_product['Price'], total_units=total_units)
-
+            
             line = f"{selected_product['Name']},{gross_revenue},{total_units}"
             logger.debug(f'writing to file :: {line}')
             f.write(f"{line}\n")
+
     logger.debug(f'build file :: {build_path} :: FIN')
 
 def main(arguments):
@@ -98,7 +99,7 @@ def main(arguments):
                                            'Quantity': int}).data
 
     accumulated_sales = get_accumulated_sales(sales)
-    build_file = build_product_report(product,accumulated_sales, build_path)
+    build_product_report(product,accumulated_sales, build_path)
 
 if __name__ == '__main__':
     main(sys.argv)

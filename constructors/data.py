@@ -37,7 +37,7 @@ class Data:
                     ...
                 ]
         """
-        logging.debug(f'Building Data object for :: {file}')
+        self.logger.debug(f'Building Data object for :: {file}')
         data = []
         try:
             with open(file) as f:
