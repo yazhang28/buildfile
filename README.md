@@ -4,7 +4,7 @@ This app builds the product report based off of the files
    -   Sales.txt
    
 ### Running the app
-Alter the command in the shell script to match your file locations:
+Alter the command in the run scripts to match your file locations:
 
 `python app.py -product_path <FILE_PATH> -sales_path <FILE_PATH> -buildfile <FILE_PATH>`
 
