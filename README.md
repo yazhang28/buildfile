@@ -1,5 +1,5 @@
 # buildfile
-This app builds the product report based off of the files
+This app is written in Python3.7 and builds the product report based off of the files
    -   ProductMaster.txt
    -   Sales.txt
    
